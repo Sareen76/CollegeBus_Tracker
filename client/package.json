@@ -18,6 +18,7 @@
     "@mui/styled-engine-sc": "^6.4.6",
     "@tailwindcss/vite": "^4.0.14",
     "@toolpad/core": "^0.13.0",
+    "axios": "^1.8.4",
     "leaflet": "^1.9.4",
     "react": "^17.0.0 || ^18.0.0 || ^19.0.0",
     "react-dom": "^17.0.0 || ^18.0.0 || ^19.0.0",

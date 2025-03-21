@@ -3,7 +3,8 @@ import { io } from "socket.io-client";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-const SERVER_ORIGIN = "http://localhost:8747";
+const SERVER_ORIGIN = "https://collegebus-tracker.onrender.com";
+// const SERVER_ORIGIN = "http://localhost:8747";
 const socket = io(SERVER_ORIGIN);
 
 const LiveMap = () => {
