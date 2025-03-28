@@ -1,6 +1,7 @@
 import User from "../models/userSchema.js";
 import jwt from "jsonwebtoken";
 import { config } from "dotenv";
+import Route from "../models/routesSchema.js";
 
 config();
 
@@ -131,5 +132,59 @@ export const signin = async (request, response, next) => {
   } catch (error) {
     console.log(error);
     return response.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+
+export const getAllRoutes = async (req, res) => {
+  try {
+      const routes = await Route.find().populate("stops.stopId"); // Populate stop details
+      return res.status(200).json({ routes });
+  } catch (error) {
+      console.error("Error fetching routes:", error);
+      return res.status(500).json({ error: "Failed to fetch routes" });
+  }
+};
+
+export const getRouteById = async (req, res) => {
+  try {
+      const { routeId } = req.params;
+
+      const route = await Route.findById(routeId).populate("stops.stopId"); // Populate stop details
+      if (!route) {
+          return res.status(404).json({ error: "Route not found", route, routeID:routeId  });
+      }
+
+      return res.status(200).json({ route });
+  } catch (error) {
+      console.error("Error fetching route:", error);
+      return res.status(500).json({ error: "Failed to fetch route" });
+  }
+};
+
+
+export const getAllStops = async (req, res) => {
+  try {
+      const stops = await Stop.find();
+      return res.status(200).json({ stops });
+  } catch (error) {
+      console.error("Error fetching stops:", error);
+      return res.status(500).json({ error: "Failed to fetch stops" });
+  }
+};
+
+export const getStopsByRoute = async (req, res) => {
+  try {
+      const { routeId } = req.params;
+
+      const route = await Route.findById(routeId).populate("stops.stopId");
+      if (!route) {
+          return res.status(404).json({ error: "Route not found", route, routeId });
+      }
+
+      return res.status(200).json({ stops: route.stops });
+  } catch (error) {
+      console.error("Error fetching stops:", error);
+      return res.status(500).json({ error: "Failed to fetch stops" });
   }
 };

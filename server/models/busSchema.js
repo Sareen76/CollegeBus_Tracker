@@ -21,39 +21,12 @@ const busSchema = new Schema({
     ref: 'Route',
     required: true,
   },
-  currentLocation: {
-    type: {
-      type: String,
-      enum: ['Point'],
-      required: true,
-    },
-    coordinates: {
-      type: [Number],
-      required: true,
-    },
-  },
   status: {
     type: String,
     enum: ['active', 'inactive', 'maintenance'],
-    default: 'active',
+    default: 'inactive',
   },
-  lastUpdated: {
-    type: Date,
-    default: Date.now,
-  },
-}, {
-  timestamps: true, 
-});
+}, { timestamps: true });
 
-// Create a 2dsphere index for geospatial queries
-busSchema.index({ currentLocation: '2dsphere' });
-
-// Pre-save hook to auto-update `lastUpdated`
-busSchema.pre('save', function (next) {
-  this.lastUpdated = Date.now();
-  next();
-});
-
-// Export the model
 const Bus = model('Bus', busSchema);
 export default Bus;
