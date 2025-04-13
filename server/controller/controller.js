@@ -1,10 +1,7 @@
 import User from "../models/userSchema.js";
 import jwt from "jsonwebtoken";
 import { config } from "dotenv";
-<<<<<<< HEAD
-=======
 import Route from "../models/routesSchema.js";
->>>>>>> 0dec10729552d52144b24b34afaf256d5669fbc1
 
 config();
 
@@ -137,8 +134,6 @@ export const signin = async (request, response, next) => {
     return response.status(500).json({ message: "Internal Server Error" });
   }
 };
-<<<<<<< HEAD
-=======
 
 
 export const getAllRoutes = async (req, res) => {
@@ -193,4 +188,3 @@ export const getStopsByRoute = async (req, res) => {
       return res.status(500).json({ error: "Failed to fetch stops" });
   }
 };
->>>>>>> 0dec10729552d52144b24b34afaf256d5669fbc1

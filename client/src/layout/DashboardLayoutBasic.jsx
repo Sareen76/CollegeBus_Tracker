@@ -107,6 +107,11 @@ export default function DashboardLayoutBasic({ window }) {
       router={router}
       theme={demoTheme}
       window={window}
+      branding={{
+        logo: <img src="https://mui.com/static/logo.png" alt="Silicon Bus Tracker" />,
+        title: 'Silicon Bus Tracker',
+        homeUrl: '',
+      }}
     >
       <DashboardLayout>
         {/* PageContainer will automatically handle breadcrumbs */}
