@@ -1,5 +1,7 @@
 import { Router } from "express";
 import { signup, signin, getRouteById, getStopsByRoute, getAllRoutes } from "../controller/controller.js";
+import { signup, signin } from "../controller/controller.js";
+
 import { verifyToken } from "../middlewares/AuthMiddleware.js";
 import { restrict } from "../middlewares/AuthMiddleware.js";
 const authRoutes = Router();

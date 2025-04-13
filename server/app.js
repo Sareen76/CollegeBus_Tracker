@@ -7,7 +7,10 @@ import { dirname, join } from "path";
 import { Server } from "socket.io";
 import { createServer } from "http";
 import authRoutes from "./routes/AuthRoutes.js";
+<<<<<<< HEAD
+=======
 import { AdminRouter } from "./routes/AdminRoutes.js";
+>>>>>>> 0dec10729552d52144b24b34afaf256d5669fbc1
 
 config(); // Load env variables
 
@@ -39,7 +42,10 @@ const io = new Server(server, {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/tracker/auth", authRoutes);
+<<<<<<< HEAD
+=======
 app.use("/tracker/admin", AdminRouter);
+>>>>>>> 0dec10729552d52144b24b34afaf256d5669fbc1
 
 // __dirname replacement for ESM
 const __filename = fileURLToPath(import.meta.url);
