@@ -59,6 +59,16 @@ export default function DashboardLayoutBasic({ window }) {
       path: "/livelocation",
       active: router.pathname === "/livelocation",
     },
+<<<<<<< HEAD
+=======
+    {
+      segment: "addnewroute",
+      title: "Add New Route",
+      icon: <MapIcon />,
+      path: "/addnewroute",
+      active: router.pathname === "/addnewroute",
+    },
+>>>>>>> 0dec10729552d52144b24b34afaf256d5669fbc1
     { kind: "divider" },
     { kind: "header", title: "Analytics" },
     {

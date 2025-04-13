@@ -21,6 +21,7 @@ const busSchema = new Schema({
     ref: 'Route',
     required: true,
   },
+<<<<<<< HEAD
   currentLocation: {
     type: {
       type: String,
@@ -55,5 +56,14 @@ busSchema.pre('save', function (next) {
 });
 
 // Export the model
+=======
+  status: {
+    type: String,
+    enum: ['active', 'inactive', 'maintenance'],
+    default: 'inactive',
+  },
+}, { timestamps: true });
+
+>>>>>>> 0dec10729552d52144b24b34afaf256d5669fbc1
 const Bus = model('Bus', busSchema);
 export default Bus;
